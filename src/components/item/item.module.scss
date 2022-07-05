@@ -1,0 +1,18 @@
+.item {
+    display: flex;
+    border-bottom: 1px solid #BADDFE;
+    font-weight: bold;
+    color: black;
+}
+
+.item_data {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0.75rem;
+}
+
+.item_player, .item_result {
+    text-align: right;
+}
+
