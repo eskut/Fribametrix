@@ -1,18 +1,35 @@
+@import '../../assets/styles/_config.scss';
+
 .item {
     display: flex;
-    border-bottom: 1px solid #BADDFE;
-    font-weight: bold;
-    color: black;
+    border-bottom: 1px solid $item-border;
+    font-weight: $item-font-weight;
+    color: $item-text;
+    background-color: $item-background;
 }
 
 .item_data {
     flex: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0.75rem;
+    padding: $item-padding;
 }
 
 .item_player, .item_result {
     text-align: right;
+}
+
+.item_edit {
+    max-width: $item-edit-width;
+    min-width: $item-edit-width;
+    background-color: $item-edit-background;
+    color: $item-edit-text;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.item:hover .item_edit {
+    display: flex;
 }
 
