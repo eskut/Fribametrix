@@ -1,5 +1,6 @@
 import styles from './item.module.scss';
 import { MdNavigateNext } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 function Item(props) {
 
@@ -16,7 +17,7 @@ function Item(props) {
                 <div className={styles.item_playdate}>{playDate}</div>
             </div>
             <div className={styles.item_edit}>
-                <MdNavigateNext />
+                <Link to={"/edit/"+props.data.id}><MdNavigateNext /></Link>
             </div>
         </div>
     );
