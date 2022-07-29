@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { useFirestore, useFirestoreCollectionData } from 'reactfire';
+import 'firebase/firestore';
 import styles from './app.module.scss';
 import Header from '../header';
 import Content from '../content';
@@ -17,13 +19,27 @@ function App() {
 
   const [data, setData] = useState([]);
   const [placelist, setPlacelist] = useState([]);
+
+  const itemCollectionRef = useFirestore().collection('item');
+  const { data: itemCollection } = useFirestoreCollectionData(itemCollectionRef.orderBy("playdate","desc"), {initialData: [], idField: "id"});
   
+  const placeCollectionRef = useFirestore().collection('place');
+  const { data: placeCollection } = useFirestoreCollectionData(placeCollectionRef.orderBy("place"), { initialData: []});
+
   useEffect(() => {
-    setData(testdata);
-    setPlacelist(["Huittinen", "Pitkäjärvi", "Rekikoski", "Vampula", "Äetsä"]);
-  }, []);
+    setData(itemCollection);
+  }, [itemCollection]);
+
+  useEffect(() => {
+    const places = placeCollection.map(obj => obj.place);
+    setPlacelist(places);
+  }, [placeCollection]);
 
   const handleItemSubmit = (newitem) => {
+
+    itemCollectionRef.doc(newitem.id).set(newitem);
+
+    /*
     let storeddata = data.slice();
     const index = storeddata.findIndex(item => item.id === newitem.id);
     if (index >= 0 ) {
@@ -39,19 +55,27 @@ function App() {
     } ); 
 
     setData(storeddata);
+    */
   }
 
   const handleItemDelete = (id) => {
+    itemCollectionRef.doc(id).delete();
+
+    /*
     let storeddata = data.slice();
     storeddata = storeddata.filter(item => item.id !== id);
     setData(storeddata);
+    */
   }
 
   const handleTypeSubmit = (newtype) => {
+    placeCollectionRef.doc().set({place: newtype});
+    /*
     let storedtypelist = placelist.slice();
     storedtypelist.push(newtype);
     storedtypelist.sort();
     setPlacelist(storedtypelist); 
+    */
   }
 
   return (
@@ -64,7 +88,7 @@ function App() {
               <Items data={data} />
             </Route>
             <Route path="/stats">
-              <Stats />
+              <Stats data={data} />
             </Route>
             <Route path="/settings">
               <Settings types={placelist} onTypeSubmit={handleTypeSubmit} />
