@@ -21,7 +21,25 @@ function ItemForm(props) {
       player: "",
       count: "",
       result: 0,
-      playdate: ""
+      basket1: "",
+      basket2: "",
+      basket3: "",
+      basket4: "",
+      basket5: "",
+      basket6: "",
+      basket7: "",
+      basket8: "",
+      basket9: "",
+      basket10: "",
+      basket11: "",
+      basket12: "",
+      basket13: "",
+      basket14: "",
+      basket15: "",
+      basket16: "",
+      basket17: "",
+      basket18: "",
+      playdate: "",
    };
 
    const {values, handleChange, handleSubmit} = useForm(submit, initialState, false);
@@ -73,79 +91,79 @@ function ItemForm(props) {
               <div className={styles.form_tag}>
                 <div>   
                    <label>1.</label>
-                   <input type="number" />    
+                   <input type="number" name="basket1" onChange={handleChange} value={values.basket1} />    
                 </div>
                 <div>
                    <label>2.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket2" onChange={handleChange} value={values.basket2} />    
                 </div>
                 <div>
                    <label>3.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket3" onChange={handleChange} value={values.basket3} />    
                 </div> 
                 <div>
                    <label>4.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket4" onChange={handleChange} value={values.basket4} />    
                 </div>  
                 <div>
                    <label>5.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket5" onChange={handleChange} value={values.basket5} />    
                 </div> 
                 <div>
                    <label>6.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket6" onChange={handleChange} value={values.basket6} />    
                 </div>
               </div>
               <div className={styles.form_tag}>
                 <div>
                    <label>7.</label>
-                   <input type="number" />    
+                   <input type="number" name="basket7" onChange={handleChange} value={values.basket7} />    
                 </div>
                 <div>
                    <label>8.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket8" onChange={handleChange} value={values.basket8} />    
                 </div>
                 <div>
                    <label>9.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket9" onChange={handleChange} value={values.basket9} />    
                 </div> 
                 <div>
                    <label>10.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket10" onChange={handleChange} value={values.basket10} />    
                 </div>  
                 <div>
                    <label>11.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket11" onChange={handleChange} value={values.basket11} />    
                 </div> 
                 <div>
                    <label>12.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket12" onChange={handleChange} value={values.basket12} />    
                 </div>
                </div> 
                 <div className={styles.form_tag}>
                 <div>
                    <label>13.</label>
-                   <input type="number" />    
+                   <input type="number" name="basket13" onChange={handleChange} value={values.basket13} />    
                 </div>
                 <div>
                    <label>14.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket14" onChange={handleChange} value={values.basket14} />    
                 </div>
                 <div>
                    <label>15.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket15" onChange={handleChange} value={values.basket15} />    
                 </div> 
                 <div>
                    <label>16.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket16" onChange={handleChange} value={values.basket16} />    
                 </div>  
                 <div>
                    <label>17.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket17" onChange={handleChange} value={values.basket17} />    
                 </div> 
                 <div>
                    <label>18.</label> 
-                   <input type="number" />    
+                   <input type="number" name="basket18" onChange={handleChange} value={values.basket18} />    
                 </div>    
               </div>
               <div className={styles.form_row}>
@@ -153,8 +171,10 @@ function ItemForm(props) {
                    <label htmlFor="result">Lopputulos</label>
                    <input type="number" name="result" onChange={handleChange} value={values.result} /> 
                 </div>  
-                <div></div>
-                <div></div>
+                <div>
+                </div>
+                <div>
+                </div>
               </div> 
 
               <div className={styles.form_row}>
