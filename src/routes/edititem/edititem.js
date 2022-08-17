@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 function EditItem(props) {
 
+    // Tuloskortin muokkaamiseen haetaan id perusteella data.
     const { id } = useParams();
     const index = props.data.findIndex(item => item.id === id);
     let item = props.data[index];

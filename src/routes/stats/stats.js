@@ -4,8 +4,10 @@ import data from '../../testdata';
 
 function Stats(props) {
 
+  // Esitellään kokonais data, johon mapattu yksittäiset tiedot mitkä näkyy käyrässä. 
   const linedata = props.data.map(item => ({ date: new Date(item.playdate).getTime(), result: item.result })) 
 
+  // Tässä asennetaan tuloksen ihanne arvo, joka on 0.
   const gradientOffset = () => {  
     const dataMax = Math.max(...data.map((item) => item.result));
     const dataMin = Math.min(...data.map((item) => item.result));
@@ -31,7 +33,7 @@ function Stats(props) {
       }
       return groupedData;
   }
-
+  
   const placedata = props.data.reduce(reducer, []);
 
 
@@ -56,7 +58,7 @@ function Stats(props) {
                                style={{ textAnchor: "middle" }} />
                     </YAxis>
                     <defs>
-                        <linearGradient id="splitColor" x1="0" y1="0" x2="0" y2="1">
+                        <linearGradient id="splitColor" x1="0" y1="0" x2="0" y2="1.5">
                             <stop offset={off} stopColor="red" stopOpacity={1} />
                             <stop offset={off} stopColor="green" stopOpacity={1} />
                         </linearGradient>

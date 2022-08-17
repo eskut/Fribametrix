@@ -2,6 +2,7 @@ import './uibuttons.css';
 
 const classNames = classnames => classnames.join(" ");
 
+// Esitellään tavallinen nappi.
 const Button = ({ className = "", primary, secondary, ...props}) => {
     return (
         <button
@@ -17,6 +18,7 @@ const Button = ({ className = "", primary, secondary, ...props}) => {
     );
 }
 
+// Esitellään kelluva nappi.
 const FloatingButton = ({ className = "", ...props }) => {
     return (
         <Button

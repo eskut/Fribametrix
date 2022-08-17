@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 function ItemForm(props) {
 
    const history = useHistory();
-
+   // Esitellään lomake kenttä.
    const submit = () => {
       let storedvalues = Object.assign({}, values);
       storedvalues.result = parseFloat(storedvalues.result);
@@ -15,7 +15,7 @@ function ItemForm(props) {
       props.onItemSubmit(storedvalues);
       history.push("/");
    }
-
+   // Lomake kenttään tallennettavat tiedot.
    const initialState = props.data ? props.data : {
       place: "",
       player: "",
@@ -43,12 +43,14 @@ function ItemForm(props) {
    };
 
    const {values, handleChange, handleSubmit} = useForm(submit, initialState, false);
-
+   
+   // Lomakkeen Peruutus nappulan esittely ja toiminta.
    const handleCancel = (event) => {
       event.preventDefault();
       history.goBack();
    }
-
+   
+   // Lomakkeen Poista nappulan esittely ja toiminta.
    const handleDelete = (event) => {
       event.preventDefault();
       props.onItemDelete(values.id);
@@ -63,26 +65,26 @@ function ItemForm(props) {
               <div className={styles.form_row}>
                 <div>
                    <label htmlFor="place">Paikka</label>
-                   <select type="text" name="place" onChange={handleChange} value={values.place} >
+                   <select type="text" name="place" onChange={handleChange} value={values.place} required >
                        { props.types.map( (type) => <option key={type} value={type}>{type}</option> ) }   
                    </select> 
                 </div>
                 <div>
                    <label htmlFor="player">Pelaaja</label>
-                   <input type="text" name="player" onChange={handleChange} value={values.player} />
+                   <input type="text" name="player" onChange={handleChange} value={values.player} required />
                 </div>
               </div>
               <div className={styles.form_row}>
                 <div>
                    <label htmlFor="count">Väylä määrä</label>
-                   <select type="text" name="count" onChange={handleChange} value={values.count} >
+                   <select type="text" name="count" onChange={handleChange} value={values.count} required >
                        <option value="18">18</option> 
                        <option value="9">9</option>   
                    </select> 
                 </div>
                 <div>
                    <label htmlFor="playdate">Pelipäivä</label>
-                   <input type="date" name="playdate" onChange={handleChange} value={values.playdate} /> 
+                   <input type="date" name="playdate" onChange={handleChange} value={values.playdate} required /> 
                 </div>
               </div>
               <div className={styles.form_row}>

@@ -1,0 +1,27 @@
+@import '../../assets/styles/_config.scss';
+
+.login {
+    padding: $container-padding;
+}
+
+.login h3 {
+    margin-top: 2.0rem;
+}
+
+.login_profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login_user {
+    display: flex;
+    align-items: center;
+}
+
+.login_user img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin: 1rem;
+}

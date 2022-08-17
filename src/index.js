@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/app';
 import reportWebVitals from './reportWebVitals';
-import { FirebaseAppProvider } from 'reactfire';
+import { FirebaseAppProvider, AuthCheck } from 'reactfire';
+import Appwrapper from './components/appwrapper';
 
 const firebaseConfig = {
     apiKey: "AIzaSyB1zSzOE2dsRv8rAZEJIxg_nFfLBNuy6Ek",
@@ -15,13 +15,12 @@ const firebaseConfig = {
     measurementId: "G-LXNTRXNBH4"
   };
 
-ReactDOM.render(
-    <React.StrictMode>
+const root = document.getElementById("root");
+   ReactDOM.render(
       <FirebaseAppProvider firebaseConfig={firebaseConfig}>  
-        <App />
-      </FirebaseAppProvider>  
-    </React.StrictMode>,
-    document.getElementById('root')
+        <Appwrapper />
+      </FirebaseAppProvider>,
+      root    
 );
 
 // If you want to start measuring performance in your app, pass a function

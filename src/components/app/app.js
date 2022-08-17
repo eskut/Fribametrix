@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import 'firebase/firestore';
+import 'firebase/auth';
 import styles from './app.module.scss';
 import Header from '../header';
 import Content from '../content';
@@ -13,7 +14,7 @@ import AddItem from '../../routes/additem';
 import EditItem from '../../routes/edititem';
 import Menu from '../menu';
 import { ButtonAppContainer } from '../../shared/uibuttons';
-import testdata from '../../testdata.js';
+// import testdata from '../../testdata.js';
 
 function App() {
 
